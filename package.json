@@ -1,0 +1,88 @@
+{
+  "name": "use-cancelable-timeout",
+  "version": "1.0.0",
+  "description": "Declarative React hook for canceling a setTimeout callback",
+  "main": "dist.js",
+  "scripts": {
+    "prepublish": "yarn run test && yarn run build",
+    "build": "babel index.js -o dist.js",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardsh/use-cancelable-timeout.git"
+  },
+  "keywords": [
+    "setTimeout",
+    "useTimeout",
+    "cancelable",
+    "cancel",
+    "timeout",
+    "hooks",
+    "react",
+    "hover",
+    "prefetch"
+  ],
+  "author": "ardsh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ardsh/use-cancelable-timeout/issues"
+  },
+  "homepage": "https://github.com/ardsh/use-cancelable-timeout#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^8.0.1",
+    "@types/jest": "^24.0.13",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard-jsx": "^6.0.2",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-test-renderer": "^16.8.6"
+  },
+  "jest": {
+    "resolver": "jest-pnp-resolver",
+    "testMatch": [
+      "<rootDir>/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/**/?(*.)(spec|test).{js,jsx}"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.init.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist",
+    "*.d.ts"
+  ]
+}

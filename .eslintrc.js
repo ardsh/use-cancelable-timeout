@@ -1,0 +1,38 @@
+module.exports = {
+  parser: "babel-eslint",
+  parserOptions: {
+    ecmaVersion: 2018,
+    ecmaFeatures: {
+      jsx: true
+    },
+    sourceType: "module"
+  },
+
+  settings: {
+    react: {
+      version: "16.0"
+    }
+  },
+
+  plugins: ["react", "react-hooks"],
+
+  extends: ["standard-jsx"],
+
+  rules: {
+    "react/jsx-no-bind": [
+      "error",
+      {
+        allowArrowFunctions: true,
+        allowBind: false,
+        ignoreRefs: true
+      }
+    ],
+    "react/no-did-update-set-state": "error",
+    "react/no-unknown-property": "error",
+    "react/no-unused-prop-types": "error",
+    "react/prop-types": "error",
+    "react/react-in-jsx-scope": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+};
