@@ -20,6 +20,10 @@ export function useCancelableTimeout(callback, timeout) {
   const cancel = React.useCallback(() => {
     clearTimeout(timer.current);
   }, []);
+  React.useEffect(() => {
+    //Auto cancel on unmount
+    return cancel;
+  }, [cancel]);
   return React.useMemo(() => [execute, cancel], [execute, cancel]);
 }
 

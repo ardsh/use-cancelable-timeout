@@ -3,7 +3,7 @@ import {renderHook, act} from "react-hooks-testing-library";
 import {useCancelableTimeout} from "../index";
 
 function createCancelableTimeout(callback, timeout = 300) {
-  const {result, rerender, waitForNextUpdate} = renderHook(
+  const {result, rerender, waitForNextUpdate, unmount} = renderHook(
     ({callback, timeout}) => useCancelableTimeout(callback, timeout),
     {
       initialProps: {
@@ -20,6 +20,7 @@ function createCancelableTimeout(callback, timeout = 300) {
   return {
     changeArgs,
     result,
+    unmount,
   };
 }
 jest.useFakeTimers();
@@ -60,5 +61,14 @@ describe("useCancelableTimeout", () => {
     jest.runAllTimers();
     expect(first).not.toHaveBeenCalled();
     expect(second).toHaveBeenCalled();
+  });
+  it("should automatically cancel when unmounted", async () => {
+    const spy = jest.fn();
+    const {result, unmount} = createCancelableTimeout(spy, 250);
+    const [execute] = result.current;
+    act(execute);
+    unmount();
+    jest.runAllTimers();
+    expect(spy).not.toHaveBeenCalled();
   });
 });

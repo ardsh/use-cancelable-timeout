@@ -1,6 +1,6 @@
 {
   "name": "use-cancelable-timeout",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Declarative React hook for canceling a setTimeout callback",
   "main": "dist.js",
   "scripts": {
